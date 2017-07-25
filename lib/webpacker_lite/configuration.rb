@@ -7,8 +7,7 @@ class WebpackerLite::Configuration < WebpackerLite::FileLoader
 
   class << self
     def manifest_path
-      Rails.root.join('public', webpack_public_output_dir,
-                      configuration.fetch(:manifest, "manifest.json"))
+      Rails.root.join('public', configuration.fetch(:manifest, "manifest.json"))
     end
 
     def webpack_public_output_dir
