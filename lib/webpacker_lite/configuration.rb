@@ -3,7 +3,7 @@ require "webpacker_lite/file_loader"
 require "webpacker_lite/env"
 
 class WebpackerLite::Configuration < WebpackerLite::FileLoader
-  RAILS_WEB_PUBLIC = "public"
+  # RAILS_WEB_PUBLIC = "public"
 
   class << self
     def manifest_path
@@ -12,7 +12,9 @@ class WebpackerLite::Configuration < WebpackerLite::FileLoader
     end
 
     def webpack_public_output_dir
-      Rails.root.join(RAILS_WEB_PUBLIC, configuration.fetch(:webpack_public_output_dir, "webpack"))
+      # NOTE Replaced original with our
+      # Rails.root.join(RAILS_WEB_PUBLIC, configuration.fetch(:webpack_public_output_dir, "webpack"))
+      Rails.root.join(configuration.fetch(:webpack_public_output_dir, "webpack"))
     end
 
     def base_path
